@@ -1,9 +1,11 @@
 # CS20-S16-lab01
-UCSB-CMPTGCS20-S16, lab01 -- FtoC and CtoF with test cases
+UCSB-CMPTGCS20-S16, lab01a -- FtoC and CtoF with test cases (unittest version)
 
 This lab is based on a session from the website http://cyber-dojo.org, created just for this course.
 
-Here's the session: http://cyber-dojo.org/enter/show/E5E50A0CDF
+This version uses `unittest` rather than `py.test`
+
+Here's the session: http://cyber-dojo.org/enter/show/ TODO-FIX-THIS-LINK!!!
 
 In this session, you have:
 * a Python *module* called `tempConversions`
@@ -17,7 +19,7 @@ Once you've tried the code in cyber-dojo.org, we'll go over how to do this in su
 
 ## Step 1: Start a new session
 
-Navigate to  http://cyber-dojo.org/enter/show/E5E50A0CDF and click *start* to begin a new session.
+Navigate to  http://cyber-dojo.org/enter/show/  TODO-FIX-THIS-LINK and click *start* to begin a new session.
 
 You'll be assigned some "animal" as your avatar. Click OK to accept this animal.
 
@@ -49,26 +51,26 @@ Here is some more information about each of the files you'll find in this projec
 * There are then two function definitions that have names starting with `test_`.  They look like this:
 
 ```Python
-def test_temp_conversions_fToC_32_0():
-    assert fToC(32.0) == 0.0
 
-def test_temp_conversions_cToF_0_32():
-    assert cToF(0.0) == 32.0
+TODO: INSERT THE NEW CODE
+
 ```
 
-* Each of these functions takes no parameters (as seen by the fact that we have an empty set of parens `()` between the name of the function and the colon (`:`).    
-* The function has a single line of code that starts with `assert`
-* What follows `assert` is a statement that is either True or False
-* If the statement is True, the test case passes.  If it is False, the test case fails.
+TODO: INSERT EXPLANATION OF unittest test cases.
 
-So the statement `assert cToF(0.0) == 32.0` asks the question: "when we evaluate the function cToF with the parameter value 0.0, is the value that is returned equal to 32.0?"  If the answer is yes, then the statement is true, and the test case will pass.
+TODO: Insert explanation of stuff below...
 
-Note that you test for equality in Python, you must use `==` rather than `=`.   
+```
+assertAlmostEqual(first, second)
+```
 
-* The reason is that `=` is used for *assignment*, i.e. giving a value to a variable.
-* It isn't important to go into more detail on that right now, since we don't need assignment in this lab.
+Test that first and second are approximately equal by computing the difference, rounding to seven decimal places, and comparing that to zero.   Note that these methods round the values to the given number of decimal places (i.e. like the round() function) and not significant digits.
 
-An aside: testing numbers with decimals for exact equality is risky.  It isn't likely to be a problem in this exercise, and because this is a very introductory exercise, we are glossing over it.  But I want to acknowledge it as an issue.  The "For further exploration" section below has further information on this topic, which we'll revisit later in the course.
+It is possible to specify a different number of decimal places, or a given delta by adding a third parameter&mdash;but we won't get into that in this lab.  We'll save that for later.  If you want to know more, you can read the details here: 
+* Navigate to https://docs.python.org/2/library/unittest.html and search on the page for `assertAlmostEqual`
+
+An aside: the reason we test for "approximate equality" is that testing numbers with decimals for exact equality is risky.
+The "For further exploration" section below has further information on this topic, which we'll revisit later in the course.
 
 ### The file `instructions`
 
@@ -100,11 +102,8 @@ The problem is that we haven't specified enough tests yet.
 Look at the instructions file, and find two additional tests that look like this:
 
 ```Python
-def test_temp_conversions_fToC_212_100():
-    assert fToC(212.0) == 100.0
+TODO: Insert new test cases in unittest format, and mention that they need to be indented the right way when they are pasted in.
 
-def test_temp_conversions_cToF_0_32():
-    assert cToF(100.0) == 212.0
 ```
 
 Copy/paste those into the `test_tempConversions.py` file.
@@ -112,29 +111,14 @@ Copy/paste those into the `test_tempConversions.py` file.
 Click test again.  The additional tests will fail.  You should see a red circle indicating the failures, and a message that 2 tests passed and two failed.   The failure output should look, more or less, like this (the formatting may be a bit off):
 
 ```
-=================================== FAILURES ===================================
-______________________ test_temp_conversions_fToC_212_100 ______________________
 
-    def test_temp_conversions_fToC_212_100():
->       assert fToC(212.0) == 100.0
-E       assert 180.0 == 100.0
-E        +  where 180.0 = fToC(212.0)
-
-test_tempConversion.py:11: AssertionError
-_______________________ test_temp_conversions_cToF_0_32 ________________________
-
-    def test_temp_conversions_cToF_0_32():
->       assert cToF(100.0) == 212.0
-E       assert 132.0 == 212.0
-E        +  where 132.0 = cToF(100.0)
-
-test_tempConversion.py:14: AssertionError
-====================== 2 failed, 1 passed in 0.02 seconds ======================
+TODO: Put in output from failed test.
 ```
 
-Look at the output above.  You'll see that the line `assert fToC(212.0) == 100.0` specifies that `fToC(212.0)` is supposed to evaluate to `100.0`.   (The `==` is the way we write *is equal to* in Python.)
+Look at the output above.  You'll see that...
 
-However, this assertion failed.    Instead of `fToC(212.0)` evaluating to `212.0`, it evaluated to `180.0`, so something is awry.   There is a similar problem with the `cToF(100.0)` evaluating to `132.0` instead of `100.0`.
+TODO: put in explanation of failed tests...
+
 
 So, see if you can fix the code in `tempConversions.py` so that the tests pass.
 
@@ -162,8 +146,8 @@ Each time you add some code, try clicking the test button again.  When you've fi
 That will look like this:
 
 ```
-=========================== 4 passed in 0.01 seconds
-===========================
+TODO put in output from tests that pass
+
 ```
 
 ## Step 3: Prepare submission for submit.cs
@@ -180,29 +164,31 @@ Somewhere on your computer's disk space (i.e. on your computer's hard drive), cr
 
 In general, its probably a good idea to keep your work for this class all in the same folder, and within that folder, create a separate folder for each lab.   This isn't exactly *required* (no-one is going to check), but it's probably a good habit to develop.   Also, the rest of the instructions will be written based on the assumption that you did things this way.  So, I'd strongly encourage you to do it. 
 
-### Step 3b: Set up the files `tempConversions.py` in that directory.
+### Step 3b: Set up the files `tempConversions.py` and `test_tempConversions.py` in that directory.
 
-Open up IDLE, and select "File -> New".  Copy and paste the contents of tempConversions.py into that window.  Then choose File->Save.
+Open up IDLE, and select "File -> New".  Copy and paste the contents of tempConversions.py into that window.  Then choose File->Save on each of those files.
 
-### Step 3c: Navigate your terminal / command prompt session to the directory cs20/lab01
+### Step 3c: Click "Run" in the window that has the file test_tempConversions.py.
 
-Now, in the terminal session / command prompt session that you opened up in Step 3a, you need to navigate to the cs20/lab00 folder.  The way you do that depends on what your Operating System is: Mac, Windows or Linux:
+In the window containing the test_tempConversions.py file, select "Run" (or press F5).
 
-* On Mac OS or Linux, use the cd command
-* On Windows, you also use the cd command (provided you are already on the correct drive).
+You should see the same output that you saw on the cyber-dojo.org site.
 
-Once you are in the correct folder, you should be able to type  `ls` (on Mac/Linux) or `dir` (on Windows), and see the file you created, i.e. `tempConversions.py`     Once you can see that, you are ready for the next step.
+If you do not, then, see if you can determine what went wrong.
 
-If that works, then you are ready to upload your tempConversions.py file to submit.cs
+Once your tests pass here, you are ready to upload your code to submit.cs
+
+### Step 3d: Upload your tempConversions.py file to submit.cs
+
+You only need to upload tempConversions.py to submit.cs, since the test_tempConversions.py file is already on the submit.cs server.
 
 Here's where to upload it:
 
-https://submit.cs.ucsb.edu/form/project/458/submission
+TODO:  put in a submit.cs link here for lab01a
 
 If the tests pass, you are finished!
 
 If you have trouble, ask during class, or post your questions to Piazza.
-
 
 # For further exploration
 
