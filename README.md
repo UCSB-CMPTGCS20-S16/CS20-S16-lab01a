@@ -1,11 +1,13 @@
 # CS20-S16-lab01
 UCSB-CMPTGCS20-S16, lab01a -- FtoC and CtoF with test cases (unittest version)
 
-This lab is based on a session from the website http://cyber-dojo.org, created just for this course.
+In this lab, you'll practice:
 
-This version uses `unittest` rather than `py.test`
+* Using test-driven development to define functions to convert Fahrenheit to Celsius, and Celsius to Fahrenheit
+* Using the cyber-dojo.org site to practice Python programming using test-driven development (using the `unittest` framework)
+* Moving a solution developed on cyber-dojo.org into IDLE, and then into the submit.cs system. 
 
-Here's the session: http://cyber-dojo.org/enter/show/63BB65 TODO-FIX-THIS-LINK!!!
+Here is the link to the cyber-dojo.org session for this lab:  http://cyber-dojo.org/enter/show/63BB65 
 
 In this session, you have:
 * a Python *module* called `tempConversions`
@@ -19,7 +21,7 @@ Once you've tried the code in cyber-dojo.org, we'll go over how to do this in su
 
 ## Step 1: Start a new session
 
-Navigate to  http://cyber-dojo.org/enter/show/  TODO-FIX-THIS-LINK and click *start* to begin a new session.
+Navigate to http://cyber-dojo.org/enter/show/63BB65 and click *start* to begin a new session.
 
 You'll be assigned some "animal" as your avatar. Click OK to accept this animal.
 
