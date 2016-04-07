@@ -168,12 +168,12 @@ Ran 4 tests in 0.001s
 FAILED (failures=2)
 ```
 
-Look at the output above.  You'll see that...
+Look at the output above.  You'll see that the tests are failing.   
+* The output contains some parts that may be mysterious such as `Traceback (most recent call last):`
+* Other parts, however, are pretty straightforward to intepret, such as: `AssertionError: 100.0 != 180.0 within 7 places`, especially when looked at in the context of the previous line: `self.assertAlmostEqual( 100.0,  fToC(212.0) )`
+* Look over this output, and see if you can make sense of it.
 
-TODO: put in explanation of failed tests...
-
-
-So, see if you can fix the code in `tempConversions.py` so that the tests pass.
+Then, see if you can fix the code in `tempConversions.py` so that the tests pass.
 
 This first involves changing the line in the definition of the `fToC(ftemp)` function that says:
 ```Python
