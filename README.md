@@ -10,10 +10,10 @@ In this lab, you'll practice:
 Here is the link to the cyber-dojo.org session for this lab:  http://cyber-dojo.org/enter/show/63BB65 
 
 In this session, you have:
-* a Python *module* called `tempConversions`
-* a Python file with test cases called `tempConversions`
+* a Python *module* called `tempConversions` in the file `tempConversions.py`
+* a Python file with test cases called `test_tempConversions.py`
 
-Briefly: your job is to fix the two functions defined in tempConversions so that they are correct.  Initially, it may appear that they *are* correct, because they are passing all of their test cases, as evidenced by the fact they when we click "test", the code appears "green".  However, we soon see that our tests are not complete enough.    So we first copy/paste two additional tests into the file `test_tempConversions.py`, and then the tests fail.   We then can correct the code and see that the functions are now correct.
+Briefly: your job is to fix the two functions defined in `tempConversions.py` so that they are correct.  Initially, it may appear that they *are* correct, because they are passing all of their test cases, as evidenced by the fact they when we click "test", the code appears "green".  However, we soon see that our tests are not complete enough.    So we first copy/paste two additional tests into the file `test_tempConversions.py`, and then the tests fail.   We then can correct the code and see that the functions are now correct.
 
 Once you've tried the code in cyber-dojo.org, we'll go over how to do this in submit.cs as well.
 
@@ -53,23 +53,47 @@ Here is some more information about each of the files you'll find in this projec
 ** `from tempConversions import cToF` 
 * These lines bring the functions `fToC` and `cToF` from the `tempConversions.py` file into the file where we are running the tests.
 
-TODO: Explain the rest of the unittest based test file here.
+Then we see this line:
+* `import unittest`
+
+This line says that we are using the `unittest` testing framework.   You do NOT need to know every single detail of this framework to do this lab&mdash;I'll walk you through what you need to know.  However, if you are the kind of person that likes to go into depth, you can read more here, with the advance warning that a lot of it is pretty technical, and involves concepts we haven't covered yet:  https://docs.python.org/2/library/unittest.html
+
+The next line creates a *class*.  A class, in Python, is a collection of function definitions and sometimes other things a as well.    We won't be talking in detail about classes for a few weeks, but in `unittest`, when you do testing,  you create a class, and each of the function definitions inside that class is one of your test cases.   
+
+Consider this line:
+*  `class TestTempConversions(unittest.TestCase):`
+
+Here is how the different parts of that break down:
+
+* It starts with the word `class` to tell Python we are creating a class
+* Then it has the name of our class (which can be anything we like, but we typically start it with the letters `Test`, with a capital `T`.
+* The next part, `(unittest.Testcase):` is needed to say that this class is full of test cases.  This is actually something called *inheritance*, but we don't need to know the details of that right now.
+
+The part we really DO want to concern ourselves with is the test cases.  They look like this.
 
 ```Python
 
-TODO: INSERT THE NEW CODE
+ def test_fToC_32_gives_0(self):
+    self.assertAlmostEqual(  0.0,  fToC(32.0) )
+
+  def test_cToF_0_gives_32(self):
+    self.assertAlmostEqual( 32.0,  cToF(0.0) )
 
 ```
 
-TODO: INSERT EXPLANATION OF unittest test cases.
+Note a few important things about these test cases:
+* THEY MUST BE INDENTED to be "part of" the class.    
+* Each of them is a function definition, where the name of the function starts with the letters `test_` exactly like that.
+* Each of them has a single parameter called `self`.  That's an annoying detail of working with `unittest`.  Just accept it on faith for right now.
+* Inside, we use special functions that are invoked by typing `self.` followed by the function name, and its parameters inside a set of parentheses.  Generally, these are functions where the first parameter is the result we expect, and the second parameter is a function call.
 
-TODO: Insert explanation of stuff below...
+The particular function we are using is this one:
 
 ```
 assertAlmostEqual(first, second)
 ```
 
-Test that first and second are approximately equal by computing the difference, rounding to seven decimal places, and comparing that to zero.   Note that these methods round the values to the given number of decimal places (i.e. like the round() function) and not significant digits.
+This function expects numerical parameters `first` and `second`.  It checks that the parameters `first` and `second` are approximately equal by computing the difference, rounding to seven decimal places, and comparing that to zero.   Note that these methods round the values to the given number of decimal places (i.e. like the round() function) and not significant digits.
 
 It is possible to specify a different number of decimal places, or a given delta by adding a third parameter&mdash;but we won't get into that in this lab.  We'll save that for later.  If you want to know more, you can read the details here: 
 * Navigate to https://docs.python.org/2/library/unittest.html and search on the page for `assertAlmostEqual`
@@ -107,11 +131,16 @@ The problem is that we haven't specified enough tests yet.
 Look at the instructions file, and find two additional tests that look like this:
 
 ```Python
-TODO: Insert new test cases in unittest format, and mention that they need to be indented the right way when they are pasted in.
+
+  def test_fToC_212_gives_100(self):
+    self.assertAlmostEqual( 100.0,  fToC(212.0) )
+
+  def test_cToF_100_gives_212(self):
+    self.assertAlmostEqual( 212.0,  cToF(100.0) )
 
 ```
 
-Copy/paste those into the `test_tempConversions.py` file.
+Copy/paste those into the `test_tempConversions.py` file.  Be sure they are indented properly.
 
 Click test again.  The additional tests will fail.  You should see a red circle indicating the failures, and a message that 2 tests passed and two failed.   The failure output should look, more or less, like this (the formatting may be a bit off):
 
