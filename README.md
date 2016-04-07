@@ -1,4 +1,4 @@
-# CS20-S16-lab01
+# CS20-S16-lab01a
 UCSB-CMPTGCS20-S16, lab01a -- FtoC and CtoF with test cases (unittest version)
 
 In this lab, you'll practice:
