@@ -5,7 +5,7 @@ This lab is based on a session from the website http://cyber-dojo.org, created j
 
 This version uses `unittest` rather than `py.test`
 
-Here's the session: http://cyber-dojo.org/enter/show/ TODO-FIX-THIS-LINK!!!
+Here's the session: http://cyber-dojo.org/enter/show/63BB65 TODO-FIX-THIS-LINK!!!
 
 In this session, you have:
 * a Python *module* called `tempConversions`
