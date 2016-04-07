@@ -168,9 +168,14 @@ Each time you add some code, try clicking the test button again.  When you've fi
 That will look like this:
 
 ```
-TODO put in output from tests that pass
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
 
+OK
 ```
+
+So, you are finished with cyber-dojo.org, and ready to move on to submit.cs
 
 ## Step 3: Prepare submission for submit.cs
 
