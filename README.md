@@ -11,7 +11,7 @@ In this session, you have:
 * a Python *module* called `tempConversions`
 * a Python file with test cases called `tempConversions`
 
-Briefly: your job is to fix the two functions defined in tempConversions so that they are correct.  Initially, it may appear that they *are* correct, because they are passing all of their test cases, as evidenced by the fact they when we click "test", the code appears "green".  However, we soon see that our tests are not complete enough.    So we first copy/paste two additional tests into the file `test_tempConversion.py`, and then the tests fail.   We then can correct the code and see that the functions are now correct.
+Briefly: your job is to fix the two functions defined in tempConversions so that they are correct.  Initially, it may appear that they *are* correct, because they are passing all of their test cases, as evidenced by the fact they when we click "test", the code appears "green".  However, we soon see that our tests are not complete enough.    So we first copy/paste two additional tests into the file `test_tempConversions.py`, and then the tests fail.   We then can correct the code and see that the functions are now correct.
 
 Once you've tried the code in cyber-dojo.org, we'll go over how to do this in submit.cs as well.
 
@@ -26,8 +26,8 @@ You'll be assigned some "animal" as your avatar. Click OK to accept this animal.
 Then you'll see some files listed on the left:
 
 * instructions
-* tempConversion.py
-* test_tempConversion.py
+* tempConversions.py
+* test_tempConversions.py
 * output
 * cyber-dojo.sh
 
@@ -46,9 +46,12 @@ Here is some more information about each of the files you'll find in this projec
 
 ### The file `test_tempConversions.py`
 
-* This file starts with the line `from tempConversions import *`
-* The `*` that ends this line is called a *wildcard*.  The meaning of this line of code is: "import everything you possibly can from tempConversions, and make it available for use".   Specifically, the function definitions for `ftoC(fTemp)` and `ctoF(cTemp)` are made available by this line of code.
-* There are then two function definitions that have names starting with `test_`.  They look like this:
+* This file starts with the two lines:
+** `from tempConversions import fToC` and
+** `from tempConversions import cToF` 
+* These lines bring the functions `fToC` and `cToF` from the `tempConversions.py` file into the file where we are running the tests.
+
+TODO: Explain the rest of the unittest based test file here.
 
 ```Python
 
@@ -111,8 +114,27 @@ Copy/paste those into the `test_tempConversions.py` file.
 Click test again.  The additional tests will fail.  You should see a red circle indicating the failures, and a message that 2 tests passed and two failed.   The failure output should look, more or less, like this (the formatting may be a bit off):
 
 ```
+.FF.
+======================================================================
+FAIL: test_cToF_100_gives_212 (test_tempConversions.TestTempConversions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./test_tempConversions.py", line 24, in test_cToF_100_gives_212
+    self.assertAlmostEqual( 212.0,  cToF(100.0) )
+AssertionError: 212.0 != 132.0 within 7 places
 
-TODO: Put in output from failed test.
+======================================================================
+FAIL: test_fToC_212_gives_100 (test_tempConversions.TestTempConversions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./test_tempConversions.py", line 21, in test_fToC_212_gives_100
+    self.assertAlmostEqual( 100.0,  fToC(212.0) )
+AssertionError: 100.0 != 180.0 within 7 places
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=2)
 ```
 
 Look at the output above.  You'll see that...
