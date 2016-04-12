@@ -240,9 +240,7 @@ Once your tests pass here, you are ready to upload your code to submit.cs
 
 You only need to upload tempConversions.py to submit.cs, since the test_tempConversions.py file is already on the submit.cs server.
 
-Here's where to upload it:
-
-TODO:  put in a submit.cs link here for lab01a
+Here's where to upload it: https://submit.cs.ucsb.edu/form/project/459/submission
 
 If the tests pass, you are finished!
 
